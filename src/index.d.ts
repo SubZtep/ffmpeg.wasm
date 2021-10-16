@@ -2,6 +2,9 @@ export const FS: {
     writeFile: (fileName: string, binaryData: Uint8Array) => void,
     readFile: (fileName: string) => Uint8Array,
     unlink: (fileName: string) => void,
+    readdir: (path: string) => string[],
+    mkdir: (path: string) => void,
+    rmdir: (path: string) => void,
 }
 
 type FSMethodNames = { [K in keyof typeof FS]: (typeof FS)[K] extends (...args: any[]) => any ? K : never }[keyof typeof FS];
